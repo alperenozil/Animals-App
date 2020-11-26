@@ -1,8 +1,10 @@
-package com.alperenozil.animalsapp;
+package com.alperenozil.animalsapp.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.alperenozil.animalsapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
