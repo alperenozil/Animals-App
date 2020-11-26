@@ -9,7 +9,7 @@
         android:id="@+id/listFragment"
         android:name="com.alperenozil.animalsapp.view.ListFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list" >
+        tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_listFragment_to_detailFragment"
             app:destination="@id/actionGoToList" />
@@ -18,9 +18,13 @@
         android:id="@+id/actionGoToList"
         android:name="com.alperenozil.animalsapp.view.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" >
+        tools:layout="@layout/fragment_detail">
         <action
             android:id="@+id/action_detailFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <argument
+            android:name="animalid"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 </navigation>
