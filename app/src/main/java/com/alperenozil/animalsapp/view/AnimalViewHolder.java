@@ -5,8 +5,12 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alperenozil.animalsapp.databinding.ItemAnimalBinding;
+
 public class AnimalViewHolder extends RecyclerView.ViewHolder {
-    public AnimalViewHolder(@NonNull View itemView) {
-        super(itemView);
+    ItemAnimalBinding itemView;
+    public AnimalViewHolder(@NonNull ItemAnimalBinding view) {
+        super(view.getRoot());
+        itemView=view;
     }
 }

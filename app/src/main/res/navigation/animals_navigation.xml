@@ -23,8 +23,7 @@
             android:id="@+id/action_detailFragment_to_listFragment"
             app:destination="@id/listFragment" />
         <argument
-            android:name="animalid"
-            app:argType="integer"
-            android:defaultValue="0" />
+            android:name="animalModel"
+            app:argType="com.alperenozil.animalsapp.model.AnimalModel" />
     </fragment>
 </navigation>
