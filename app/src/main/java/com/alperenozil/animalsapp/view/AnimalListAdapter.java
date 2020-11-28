@@ -7,6 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
@@ -38,6 +40,10 @@ public class AnimalListAdapter extends RecyclerView.Adapter<AnimalViewHolder> {
         TextView textView=holder.itemView.findViewById(R.id.textView);
         textView.setText(animalList.get(position).name);
         Util.loadImage(imageView,animalList.get(position).imageUrl,Util.getProgressDrawable(imageView.getContext()));
+        imageView.setOnClickListener(v -> {
+            NavDirections action=ListFragmentDirections.actionListFragmentToDetailFragment();
+            Navigation.findNavController(v).navigate(action);
+        });
     }
 
     @Override
