@@ -8,9 +8,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import com.alperenozil.animalsapp.R;
 import com.alperenozil.animalsapp.model.AnimalModel;
+import com.alperenozil.animalsapp.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +37,7 @@ public class AnimalListAdapter extends RecyclerView.Adapter<AnimalViewHolder> {
         ImageView imageView=holder.itemView.findViewById(R.id.imageView);
         TextView textView=holder.itemView.findViewById(R.id.textView);
         textView.setText(animalList.get(position).name);
+        Util.loadImage(imageView,animalList.get(position).imageUrl,Util.getProgressDrawable(imageView.getContext()));
     }
 
     @Override
