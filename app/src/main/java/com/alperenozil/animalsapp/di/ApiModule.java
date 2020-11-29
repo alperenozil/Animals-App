@@ -15,4 +15,9 @@ public class ApiModule {
     public AnimalApi provideAnimalApi(){
         return new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build().create(AnimalApi.class);
     }
+
+    @Provides
+    public AnimalApiService provideAnimalApiService() {
+        return new AnimalApiService();
+    }
 }

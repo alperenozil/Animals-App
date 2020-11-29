@@ -10,6 +10,8 @@ import com.alperenozil.animalsapp.model.ApiKeyModel;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
@@ -17,7 +19,8 @@ import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
 public class ListViewModel extends ViewModel {
-    private AnimalApiService animalApiService = new AnimalApiService();
+    @Inject
+    private AnimalApiService animalApiService;
     private CompositeDisposable disposable = new CompositeDisposable();
     public MutableLiveData<List<AnimalModel>> animals = new MutableLiveData<List<AnimalModel>>();
     public MutableLiveData<Boolean> loadError = new MutableLiveData<Boolean>();
