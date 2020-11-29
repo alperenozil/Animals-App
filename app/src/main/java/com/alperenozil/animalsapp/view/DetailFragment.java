@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.alperenozil.animalsapp.R;
+import com.alperenozil.animalsapp.databinding.FragmentDetailBinding;
 import com.alperenozil.animalsapp.model.AnimalModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -22,19 +24,15 @@ import butterknife.ButterKnife;
 
 public class DetailFragment extends Fragment {
     private AnimalModel animalModel;
-
-    @BindView(R.id.detailTextView)
-    TextView detail;
-
+    FragmentDetailBinding animalDetailBinding;
     public DetailFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_detail, container, false);
-        ButterKnife.bind(this, view);
-        return view;
+        animalDetailBinding= DataBindingUtil.inflate(inflater,R.layout.fragment_detail,container,false);
+        return animalDetailBinding.getRoot();
     }
 
     @Override
@@ -44,7 +42,7 @@ public class DetailFragment extends Fragment {
             animalModel = DetailFragmentArgs.fromBundle(getArguments()).getAnimalModel();
         }
         if (animalModel!=null) {
-            detail.setText(animalModel.name);
+            animalDetailBinding.setAnimal(animalModel);
         }
     }
 }
